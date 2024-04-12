@@ -60,7 +60,53 @@ In order to ensure that the Laravel community is welcoming to all, please review
 ## Security Vulnerabilities
 
 If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+<br> <br>
+
+## Implementimi i Laravel ORM
+
+Kjo pjesë e readme përmban një shpjegim rreth implementim të Laravel ORM për menaxhimin e ndërveprimeve me bazën e të dhënave në aplikacionin Laravel.
+
+## Përmbledhje
+
+Laravel ORM ofron një mënyrë të përshtatshme për të ndërvepruar me bazat e të dhënave duke abstraktuar operacionet e bazës së të dhënave në metoda PHP. Lejon zhvilluesit të punojnë me regjistrat e bazës së të dhënave si objekte, duke thjeshtuar manipulimin e të dhënave dhe reduktimin e nevojës për të shkruar kërkesa SQL të thella.
+
+## Kërkesat
+
+- PHP >= 7.4
+- Composer
+- Framework-u Laravel
+
+## Instalimi
+
+- ### Klononi repository-in në device-in tuaj:
+git clone https://github.com/emazech/crowned-backend.git
+
+- ### Instaloni varësitë duke përdorur Composer:
+composer install
+
+- ### Konfiguroni lidhjen me bazën tuaj të të dhënave në skedarin .env:
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=your_database
+DB_USERNAME=your_username
+DB_PASSWORD=your_password
+
+- ### Ekzekutoni migracionet e bazës së të dhënave për të krijuar tabelat e nevojshme:
+ <i>(Në këtë pjesë ka qenë e nevojshme të tregohet kujdes sepse në fillim i kemi tre files të migrimeve by default, këto tre mirgrime krijojnë tabelat: users, password_reset_tokens, sessions, cache, cache_locks, jobs, job_batches dhe failed_jobs.)</i> <br> <br>
+php artisan migrate
+
+- ### Hollësi:
+Duhet të dihet se modelet zakonisht janë në app directory, por ne mund t'i vendosim në directory ku ato e kanë mundësin të auto-load (varësisht nga composer.json file). Të gjitha modelet Eloquent extend Illuminate\Database\Eloquent\Model.
+
+### Përdorimi:
+- Përcaktoni tabelat e bazës së të dhënave si modele Eloquent në direktoriumin app/Models.
+- Përcaktoni marrëdhëniet mes modeleve duke përdorur metodat e marrëdhënies së Eloquent.
+- Përdorni metodat e ndërtuesit të query të Eloquent për të nxjerrë, krijuar, përditësuar dhe fshirë regjistrat nga baza e të dhënave.
+- Referohuni në https://laravel.com/docs/5.0/eloquent për udhëzime të detajuara për përdorimin dhe shembujt.
 
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
