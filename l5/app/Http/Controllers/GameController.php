@@ -14,7 +14,7 @@ class GameController extends Controller
      */
     public function fetchGames()
     {
-        $games = Game::all();
+        $games = Game::all()->shuffle();
         return response()->json($games);
     }
 }
