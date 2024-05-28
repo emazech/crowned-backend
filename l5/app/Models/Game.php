@@ -15,4 +15,10 @@ class Game extends Model
 
     protected $fillable = ['name', 'description'];
 
+    public function scores()
+    {
+        return $this->hasMany(Score::class);
+    }
+
+
 }
